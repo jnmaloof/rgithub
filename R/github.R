@@ -205,6 +205,7 @@ get.github.context <- function()
 .api.request <- function(ctx, req, method, expect.code = 200,
                          params = list(), config = accept_json(), body = NULL)
 {
+  params <- c(params,"per_page=100")
   resource <- str_c(req, collapse = '/')
   lst <- .build.url(ctx, resource, params)
   url <- lst$url
